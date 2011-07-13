@@ -58,8 +58,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class LoadImage extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_STRING},
-          Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{Syntax.StringType()},
+          Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -82,7 +82,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class SaveImage extends DefaultCommand {
 
     public Syntax getSyntax() {
-      int[] right = {Syntax.TYPE_WILDCARD, Syntax.TYPE_STRING};
+      int[] right = {Syntax.WildcardType(), Syntax.StringType()};
       return Syntax.commandSyntax(right);
     }
 
@@ -109,7 +109,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class GrabView extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{}, Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{}, Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -128,8 +128,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Width extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD},
-          Syntax.TYPE_NUMBER);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+          Syntax.NumberType());
     }
 
     public String getAgentClassString() {
@@ -145,8 +145,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Height extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD},
-          Syntax.TYPE_NUMBER);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+          Syntax.NumberType());
     }
 
     public String getAgentClassString() {
@@ -162,9 +162,9 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Scale extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD,
-          Syntax.TYPE_NUMBER, Syntax.TYPE_NUMBER},
-          Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+          Syntax.NumberType(), Syntax.NumberType()},
+          Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -196,8 +196,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class ImportToDrawing extends DefaultCommand {
 
     public Syntax getSyntax() {
-      int[] right = {Syntax.TYPE_WILDCARD, Syntax.TYPE_NUMBER,
-          Syntax.TYPE_NUMBER};
+      int[] right = {Syntax.WildcardType(), Syntax.NumberType(),
+          Syntax.NumberType()};
       return Syntax.commandSyntax(right);
     }
 
@@ -222,7 +222,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class ImportToPcolors extends DefaultCommand {
 
     public Syntax getSyntax() {
-      int[] right = {Syntax.TYPE_WILDCARD, Syntax.TYPE_BOOLEAN};
+      int[] right = {Syntax.WildcardType(), Syntax.BooleanType()};
       return Syntax.commandSyntax(right);
     }
 
@@ -242,9 +242,9 @@ public class BitmapExtension extends DefaultClassManager {
   public static class DifferenceRGB extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD,
-          Syntax.TYPE_WILDCARD},
-          Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+          Syntax.WildcardType()},
+          Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -292,9 +292,9 @@ public class BitmapExtension extends DefaultClassManager {
   public static class ExtractChannel extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD,
-          Syntax.TYPE_NUMBER},
-          Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+          Syntax.NumberType()},
+          Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -336,8 +336,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Grayscale extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD},
-          Syntax.TYPE_WILDCARD);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+          Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -358,8 +358,8 @@ public class BitmapExtension extends DefaultClassManager {
   public static class RGBLevels extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.TYPE_WILDCARD},
-          Syntax.TYPE_LIST);
+      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+          Syntax.ListType());
     }
 
     public String getAgentClassString() {
