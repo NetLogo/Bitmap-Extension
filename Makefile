@@ -9,11 +9,10 @@ endif
 JAVAC=$(JAVA_HOME)/bin/javac
 SRCS=$(wildcard src/*.java)
 
-bitmap.jar bitmap.jar.pack.gz: $(SRCS) manifest.txt NetLogoHeadless.jar Makefile
+bitmap.jar: $(SRCS) manifest.txt NetLogoHeadless.jar Makefile
 	mkdir -p classes
 	$(JAVAC) -g -deprecation -Xlint:all -Xlint:-serial -Xlint:-path -encoding us-ascii -source 1.7 -target 1.7 -classpath NetLogoHeadless.jar -d classes $(SRCS)
 	jar cmf manifest.txt bitmap.jar -C classes .
-	pack200 --modification-time=latest --effort=9 --strip-debug --no-keep-file-order --unknown-attribute=strip bitmap.jar.pack.gz bitmap.jar
 
 NetLogoHeadless.jar:
 	curl -f -s -S 'http://ccl.northwestern.edu/devel/6.0-M1/NetLogoHeadless.jar' -o NetLogoHeadless.jar
@@ -21,6 +20,6 @@ NetLogoHeadless.jar:
 bitmap.zip: bitmap.jar
 	rm -rf bitmap
 	mkdir bitmap
-	cp -rp bitmap.jar bitmap.jar.pack.gz README.md Makefile src manifest.txt bitmap
+	cp -rp bitmap.jar README.md Makefile src manifest.txt bitmap
 	zip -rv bitmap.zip bitmap
 	rm -rf bitmap
