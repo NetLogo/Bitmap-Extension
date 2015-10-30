@@ -4,7 +4,7 @@ import java.awt.image.*;
 
 public class LogoBitmap
     extends BufferedImage
-    implements org.nlogo.api.ExtensionObject {
+    implements org.nlogo.core.ExtensionObject {
   public LogoBitmap(BufferedImage image) {
     super(image.getColorModel(), image.getRaster(), image.isAlphaPremultiplied(), null);
   }

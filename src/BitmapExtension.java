@@ -3,7 +3,8 @@ package org.nlogo.extensions.bitmap;
 import org.nlogo.api.DefaultClassManager;
 import org.nlogo.api.LogoListBuilder;
 import org.nlogo.api.PrimitiveManager;
-import org.nlogo.api.Syntax;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 import org.nlogo.api.Context;
 import org.nlogo.api.DefaultReporter;
 import org.nlogo.api.DefaultCommand;
@@ -58,7 +59,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class LoadImage extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.StringType()},
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.StringType()},
           Syntax.WildcardType());
     }
 
@@ -83,7 +84,7 @@ public class BitmapExtension extends DefaultClassManager {
 
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.StringType()};
-      return Syntax.commandSyntax(right);
+      return SyntaxJ.commandSyntax(right);
     }
 
     public String getAgentClassString() {
@@ -109,7 +110,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class GrabView extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{}, Syntax.WildcardType());
+      return SyntaxJ.reporterSyntax(new int[]{}, Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -128,7 +129,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Width extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
           Syntax.NumberType());
     }
 
@@ -145,7 +146,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Height extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
           Syntax.NumberType());
     }
 
@@ -162,7 +163,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Scale extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
           Syntax.NumberType(), Syntax.NumberType()},
           Syntax.WildcardType());
     }
@@ -198,7 +199,7 @@ public class BitmapExtension extends DefaultClassManager {
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.NumberType(),
           Syntax.NumberType()};
-      return Syntax.commandSyntax(right);
+      return SyntaxJ.commandSyntax(right);
     }
 
     public String getAgentClassString() {
@@ -223,7 +224,7 @@ public class BitmapExtension extends DefaultClassManager {
 
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.BooleanType()};
-      return Syntax.commandSyntax(right);
+      return SyntaxJ.commandSyntax(right);
     }
 
     public String getAgentClassString() {
@@ -242,7 +243,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class DifferenceRGB extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
           Syntax.WildcardType()},
           Syntax.WildcardType());
     }
@@ -292,7 +293,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class ExtractChannel extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType(),
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
           Syntax.NumberType()},
           Syntax.WildcardType());
     }
@@ -336,7 +337,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class Grayscale extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
           Syntax.WildcardType());
     }
 
@@ -358,7 +359,7 @@ public class BitmapExtension extends DefaultClassManager {
   public static class RGBLevels extends DefaultReporter {
 
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax(new int[]{Syntax.WildcardType()},
+      return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
           Syntax.ListType());
     }
 
