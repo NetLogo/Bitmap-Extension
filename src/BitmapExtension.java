@@ -6,8 +6,8 @@ import org.nlogo.api.PrimitiveManager;
 import org.nlogo.core.Syntax;
 import org.nlogo.core.SyntaxJ;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
-import org.nlogo.api.DefaultCommand;
+import org.nlogo.api.Reporter;
+import org.nlogo.api.Command;
 import org.nlogo.api.Argument;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
@@ -56,7 +56,7 @@ public class BitmapExtension extends DefaultClassManager {
     return (BufferedImage) obj;
   }
 
-  public static class LoadImage extends DefaultReporter {
+  public static class LoadImage implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.StringType()},
@@ -80,7 +80,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class SaveImage extends DefaultCommand {
+  public static class SaveImage implements Command {
 
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.StringType()};
@@ -107,7 +107,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class GrabView extends DefaultReporter {
+  public static class GrabView implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{}, Syntax.WildcardType());
@@ -126,7 +126,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class Width extends DefaultReporter {
+  public static class Width implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
@@ -143,7 +143,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class Height extends DefaultReporter {
+  public static class Height implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
@@ -160,7 +160,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class Scale extends DefaultReporter {
+  public static class Scale implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
@@ -194,7 +194,7 @@ public class BitmapExtension extends DefaultClassManager {
         null));
   }
 
-  public static class ImportToDrawing extends DefaultCommand {
+  public static class ImportToDrawing implements Command {
 
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.NumberType(),
@@ -220,7 +220,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class ImportToPcolors extends DefaultCommand {
+  public static class ImportToPcolors implements Command {
 
     public Syntax getSyntax() {
       int[] right = {Syntax.WildcardType(), Syntax.BooleanType()};
@@ -240,7 +240,7 @@ public class BitmapExtension extends DefaultClassManager {
   }
 
 
-  public static class DifferenceRGB extends DefaultReporter {
+  public static class DifferenceRGB implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
@@ -290,7 +290,7 @@ public class BitmapExtension extends DefaultClassManager {
   }
 
 
-  public static class ExtractChannel extends DefaultReporter {
+  public static class ExtractChannel implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType(),
@@ -334,7 +334,7 @@ public class BitmapExtension extends DefaultClassManager {
     return new LogoBitmap(dest);
   }
 
-  public static class Grayscale extends DefaultReporter {
+  public static class Grayscale implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
@@ -356,7 +356,7 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class RGBLevels extends DefaultReporter {
+  public static class RGBLevels implements Reporter {
 
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax(new int[]{Syntax.WildcardType()},
