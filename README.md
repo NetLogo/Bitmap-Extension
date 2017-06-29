@@ -58,7 +58,7 @@ will be imported as well.
 ### `bitmap:average-color`
 
 ```NetLogo
-bitmap:average-color bitmap:average-color
+bitmap:average-color image
 ```
 
 
@@ -72,7 +72,7 @@ ranges from 0 to 255.
 ### `bitmap:channel`
 
 ```NetLogo
-bitmap:channel bitmap:channel bitmap:channel
+bitmap:channel image channel
 ```
 
 
@@ -86,7 +86,7 @@ image is a grayscale image representing specified channel.
 ### `bitmap:copy-to-drawing`
 
 ```NetLogo
-bitmap:copy-to-drawing bitmap:copy-to-drawing bitmap:copy-to-drawing bitmap:copy-to-drawing
+bitmap:copy-to-drawing image x y
 ```
 
 
@@ -98,7 +98,7 @@ the given pixel coordinates.
 ### `bitmap:copy-to-pcolors`
 
 ```NetLogo
-bitmap:copy-to-pcolors bitmap:copy-to-pcolors bitmap:copy-to-pcolors
+bitmap:copy-to-pcolors image boolean
 ```
 
 
@@ -112,7 +112,7 @@ colors.
 ### `bitmap:difference-rgb`
 
 ```NetLogo
-bitmap:difference-rgb bitmap:difference-rgb bitmap:difference-rgb
+bitmap:difference-rgb image1 image2
 ```
 
 
@@ -125,7 +125,7 @@ the same width and height as each other, or errors will ensue.
 ### `bitmap:export`
 
 ```NetLogo
-bitmap:export bitmap:export bitmap:export
+bitmap:export image filename
 ```
 
 Writes *image* to *filename*.
@@ -143,7 +143,7 @@ Reports an image of the current view.
 ### `bitmap:to-grayscale`
 
 ```NetLogo
-bitmap:to-grayscale bitmap:to-grayscale
+bitmap:to-grayscale image
 ```
 
 Converts the given image to grayscale.
@@ -152,7 +152,7 @@ Converts the given image to grayscale.
 ### `bitmap:height`
 
 ```NetLogo
-bitmap:height bitmap:height
+bitmap:height image
 ```
 
 Reports the height of given *image*
@@ -161,7 +161,7 @@ Reports the height of given *image*
 ### `bitmap:import`
 
 ```NetLogo
-bitmap:import bitmap:import
+bitmap:import filename
 ```
 
 Reports a LogoBitmap containing the image at *filename*.
@@ -170,7 +170,7 @@ Reports a LogoBitmap containing the image at *filename*.
 ### `bitmap:scaled`
 
 ```NetLogo
-bitmap:scaled bitmap:scaled bitmap:scaled bitmap:scaled
+bitmap:scaled image width height
 ```
 
 Reports a new image that is *image* scaled to the given *width* and *height*
@@ -179,7 +179,7 @@ Reports a new image that is *image* scaled to the given *width* and *height*
 ### `bitmap:width`
 
 ```NetLogo
-bitmap:width bitmap:width
+bitmap:width image
 ```
 
 Reports the width of the given *image*
