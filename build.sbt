@@ -2,6 +2,8 @@ enablePlugins(org.nlogo.build.NetLogoExtension, org.nlogo.build.ExtensionDocumen
 
 name := "bitmap"
 
+version := "1.1.0"
+
 netLogoClassManager := "org.nlogo.extensions.bitmap.BitmapExtension"
 
 netLogoTarget :=
