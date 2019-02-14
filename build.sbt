@@ -1,5 +1,7 @@
 enablePlugins(org.nlogo.build.NetLogoExtension, org.nlogo.build.ExtensionDocumentationPlugin)
 
+scalaVersion := "2.12.8"
+
 name := "bitmap"
 
 version := "1.1.0"
