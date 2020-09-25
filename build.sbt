@@ -1,7 +1,5 @@
 enablePlugins(org.nlogo.build.NetLogoExtension, org.nlogo.build.ExtensionDocumentationPlugin)
 
-scalaVersion := "2.12.8"
-
 name := "bitmap"
 
 version := "1.1.1"
@@ -16,4 +14,4 @@ javaSource in Compile := baseDirectory.value / "src"
 javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path",
   "-encoding", "us-ascii")
 
-netLogoVersion := "6.1.0-RC1"
+netLogoVersion := "6.1.1-c82c397"
