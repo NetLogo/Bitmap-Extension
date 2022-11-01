@@ -1,7 +1,3 @@
 ## Building
 
-Use the netlogo.jar.url environment variable to tell sbt which NetLogo.jar to compile against (defaults to NetLogo 5.3). For example:
-
-    sbt -Dnetlogo.jar.url=file:///path/to/NetLogo/target/NetLogo.jar package
-
-If compilation succeeds, `bitmap.jar` will be created.
+Just run `sbt package` or start an sbt session with `sbt`, then run `package` inside of that.  If compilation succeeds, `bitmap.jar` will be created in the root of the repository.
