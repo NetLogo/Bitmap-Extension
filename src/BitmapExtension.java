@@ -16,6 +16,11 @@ import org.nlogo.nvm.FileManager;
 import org.nlogo.nvm.Workspace;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+import javax.imageio.ImageIO;
 
 public class BitmapExtension extends DefaultClassManager {
 
@@ -23,6 +28,10 @@ public class BitmapExtension extends DefaultClassManager {
     primitiveManager.addPrimitive("import", new LoadImage());
     // saves to disk as PNG format
     primitiveManager.addPrimitive("export", new SaveImage());
+
+    primitiveManager.addPrimitive("from-base64", new FromBase64());
+    primitiveManager.addPrimitive("to-base64", new ToBase64());
+
     // returns a LogoBitmap image from NetLogo's primary view, as if by export-view
     primitiveManager.addPrimitive("from-view", new GrabView());
 
@@ -73,7 +82,7 @@ public class BitmapExtension extends DefaultClassManager {
       try {
         String path = fm.attachPrefix(args[0].getString());
         return new LogoBitmap(
-            javax.imageio.ImageIO.read(fm.getFile(path).getInputStream()));
+            ImageIO.read(fm.getFile(path).getInputStream()));
       } catch (java.io.IOException e) {
         throw new ExtensionException(e.getMessage());
       }
@@ -99,12 +108,64 @@ public class BitmapExtension extends DefaultClassManager {
         String filename = context.attachCurrentDirectory(args[1].getString());
         java.io.FileOutputStream stream =
             new java.io.FileOutputStream(filename);
-        javax.imageio.ImageIO.write(image, "png", stream);
+        ImageIO.write(image, "png", stream);
         stream.close();
       } catch (java.io.IOException e) {
         throw new ExtensionException(e.getMessage());
       }
     }
+  }
+
+  public static class FromBase64 implements Reporter {
+
+    public Syntax getSyntax() {
+      return SyntaxJ.reporterSyntax(new int[] { Syntax.StringType() }, Syntax.WildcardType());
+    }
+
+    public String getAgentClassString() {
+      return "OTPL";
+    }
+
+    public Object report(Argument args[], Context context)
+        throws ExtensionException, LogoException {
+      String base64 = args[0].getString();
+      byte[] bytes   = Base64.getDecoder().decode(base64);
+      try {
+        BufferedImage image = ImageIO.read(new ByteArrayInputStream(bytes));
+        return new LogoBitmap(image);
+      }
+      catch (final IOException ex) {
+        throw new ExtensionException(ex);
+      }
+    }
+
+  }
+
+  public static class ToBase64 implements Reporter {
+
+    public Syntax getSyntax() {
+      return SyntaxJ.reporterSyntax(new int[] { Syntax.WildcardType() }, Syntax.StringType());
+    }
+
+    public String getAgentClassString() {
+      return "OTPL";
+    }
+
+    public Object report(Argument args[], Context context)
+        throws ExtensionException, LogoException {
+      BufferedImage image = getBitmapFromArgument(args[0]);
+
+      final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+      try {
+        ImageIO.write(image, "png", baos);
+        return Base64.getEncoder().encodeToString(baos.toByteArray());
+      }
+      catch (final IOException ex) {
+        throw new ExtensionException(ex);
+      }
+    }
+
   }
 
   public static class GrabView implements Reporter {

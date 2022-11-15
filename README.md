@@ -43,6 +43,8 @@ will be imported as well.
 [`bitmap:copy-to-pcolors`](#bitmapcopy-to-pcolors)
 [`bitmap:difference-rgb`](#bitmapdifference-rgb)
 [`bitmap:export`](#bitmapexport)
+[`bitmap:from-base64`](#bitmapfrom-base64)
+[`bitmap:to-base64`](#bitmapto-base64)
 [`bitmap:from-view`](#bitmapfrom-view)
 [`bitmap:to-grayscale`](#bitmapto-grayscale)
 [`bitmap:height`](#bitmapheight)
@@ -125,6 +127,24 @@ bitmap:export image filename
 ```
 
 Writes *image* to *filename*.
+
+
+### `bitmap:from-base64`
+
+```NetLogo
+bitmap:from-base64 base64-string
+```
+
+Turns a base64 encoded string into a bitmap image for use by the extension.  The [Fetch](https://github.com/NetLogo/Fetch-Extension) and [Export-The](https://github.com/NetLogo/ExportThe-Extension) extensions would be common sources of these encoded strings.
+
+
+### `bitmap:to-base64`
+
+```NetLogo
+bitmap:to-base64 base64-string
+```
+
+Turns a bitmap image into a base64 encoded string with a PNG format.
 
 
 ### `bitmap:from-view`
