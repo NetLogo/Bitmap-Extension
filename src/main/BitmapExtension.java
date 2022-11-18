@@ -128,8 +128,12 @@ public class BitmapExtension extends DefaultClassManager {
 
     public Object report(Argument args[], Context context)
         throws ExtensionException, LogoException {
-      String base64 = args[0].getString();
-      byte[] bytes   = Base64.getDecoder().decode(base64);
+      String[] splits = args[0].getString().split(",");
+      if (splits.length != 2) {
+        throw new ExtensionException("Base 64 string must start with a preamble like 'data:image/png;base64,...'");
+      }
+      String base64   = splits[1];
+      byte[] bytes    = Base64.getDecoder().decode(base64);
       try {
         BufferedImage image = ImageIO.read(new ByteArrayInputStream(bytes));
         return new LogoBitmap(image);
@@ -159,7 +163,8 @@ public class BitmapExtension extends DefaultClassManager {
 
       try {
         ImageIO.write(image, "png", baos);
-        return Base64.getEncoder().encodeToString(baos.toByteArray());
+        String base64 = Base64.getEncoder().encodeToString(baos.toByteArray());
+        return "data:image/png;base64," + base64;
       }
       catch (final IOException ex) {
         throw new ExtensionException(ex);

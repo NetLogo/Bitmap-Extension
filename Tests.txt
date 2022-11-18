@@ -13,7 +13,7 @@ Base64
   O> bitmap:copy-to-pcolors image true
   O> set pcolors map [ p -> [pcolor] of p ] (sort patches)
   O> set base64 bitmap:to-base64 image
-  substring base64 0 49 => "iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAYAAAChS3wfAAAnc"
+  substring base64 0 49 => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEA"
   O> set image bitmap:from-base64 base64
   O> bitmap:copy-to-pcolors image true
   pcolors = map [ p -> [pcolor] of p ] (sort patches) => true
