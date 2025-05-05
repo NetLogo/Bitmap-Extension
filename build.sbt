@@ -13,6 +13,6 @@ javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xli
 
 Test / scalaSource := baseDirectory.value / "src" / "test"
 
-netLogoVersion := "7.0.0-internal1"
+netLogoVersion := "7.0.0-internal1-df97144"
 netLogoClassManager := "org.nlogo.extensions.bitmap.BitmapExtension"
 netLogoTestExtras += baseDirectory.value / "test-images"
