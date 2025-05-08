@@ -6,13 +6,13 @@ name := "bitmap"
 version := "1.2.1"
 isSnapshot := true
 
-scalaVersion := "2.13.16"
+scalaVersion := "3.7.0"
 
 Compile / javaSource := baseDirectory.value / "src" / "main"
-javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path", "-encoding", "us-ascii", "--release", "11")
+javacOptions ++= Seq("-g", "-deprecation", "-encoding", "us-ascii", "--release", "11")
 
 Test / scalaSource := baseDirectory.value / "src" / "test"
 
-netLogoVersion := "7.0.0-internal1-df97144"
+netLogoVersion := "7.0.0-beta1"
 netLogoClassManager := "org.nlogo.extensions.bitmap.BitmapExtension"
 netLogoTestExtras += baseDirectory.value / "test-images"
