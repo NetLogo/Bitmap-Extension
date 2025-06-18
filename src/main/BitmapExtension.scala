@@ -18,7 +18,9 @@ class FromBase64 extends Reporter {
     val arr = args(0).getString.split(",")
 
     val base64 =
-      if (arr.length == 2) {
+      if (arr.length == 1) {
+        arr(0)
+      } else if (arr.length == 2) {
         arr(1)
       } else {
         throw new ExtensionException("This primitive only accepts input that is base64-encoded.")
