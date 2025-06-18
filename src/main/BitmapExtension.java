@@ -116,35 +116,6 @@ public class BitmapExtension extends DefaultClassManager {
     }
   }
 
-  public static class FromBase64 implements Reporter {
-
-    public Syntax getSyntax() {
-      return SyntaxJ.reporterSyntax(new int[] { Syntax.StringType() }, Syntax.WildcardType());
-    }
-
-    public String getAgentClassString() {
-      return "OTPL";
-    }
-
-    public Object report(Argument args[], Context context)
-        throws ExtensionException, LogoException {
-      String[] splits = args[0].getString().split(",");
-      if (splits.length != 2) {
-        throw new ExtensionException("Base 64 string must start with a preamble like 'data:image/png;base64,...'");
-      }
-      String base64   = splits[1];
-      byte[] bytes    = Base64.getDecoder().decode(base64);
-      try {
-        BufferedImage image = ImageIO.read(new ByteArrayInputStream(bytes));
-        return new LogoBitmap(image);
-      }
-      catch (final IOException ex) {
-        throw new ExtensionException(ex);
-      }
-    }
-
-  }
-
   public static class ToBase64 implements Reporter {
 
     public Syntax getSyntax() {
