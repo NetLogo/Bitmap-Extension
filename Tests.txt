@@ -18,6 +18,19 @@ Base64
   O> bitmap:copy-to-pcolors image true
   pcolors = map [ p -> [pcolor] of p ] (sort patches) => true
 
+Base64NoPrefix
+  extensions [ bitmap ]
+  globals [ base64 image pcolors ]
+  O> set image bitmap:import "extensions/bitmap/test-images/BitmapTest.jpg"
+  O> set image bitmap:scaled image 64 48
+  O> bitmap:copy-to-pcolors image true
+  O> set pcolors map [ p -> [pcolor] of p ] (sort patches)
+  O> set base64 bitmap:to-base64 image
+  substring base64 0 49 => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEA"
+  O> set image bitmap:from-base64 (substring base64 22 (length base64)) ; Strip the prefix
+  O> bitmap:copy-to-pcolors image true
+  pcolors = map [ p -> [pcolor] of p ] (sort patches) => true
+
 AverageColor
   extensions [ bitmap ]
   globals [ image ]
