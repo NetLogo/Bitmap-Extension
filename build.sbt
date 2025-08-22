@@ -13,6 +13,6 @@ javacOptions ++= Seq("-g", "-deprecation", "-encoding", "us-ascii", "--release",
 
 Test / scalaSource := baseDirectory.value / "src" / "test"
 
-netLogoVersion      := "7.0.0-beta2-8cd3e65"
+netLogoVersion      := "7.0.0-beta2-7e8f7a4"
 netLogoClassManager := "org.nlogo.extensions.bitmap.BitmapExtension"
 netLogoTestExtras += baseDirectory.value / "test-images"
