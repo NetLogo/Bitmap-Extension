@@ -16,3 +16,5 @@ Test / scalaSource := baseDirectory.value / "src" / "test"
 netLogoVersion      := "7.0.0-424b50b"
 netLogoClassManager := "org.nlogo.extensions.bitmap.BitmapExtension"
 netLogoTestExtras += baseDirectory.value / "test-images"
+
+resolvers += "jitpack" at "https://jitpack.io"
