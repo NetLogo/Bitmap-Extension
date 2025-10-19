@@ -3,7 +3,7 @@ import org.nlogo.build.{ NetLogoExtension, ExtensionDocumentationPlugin }
 enablePlugins(NetLogoExtension, ExtensionDocumentationPlugin)
 
 name := "bitmap"
-version := "1.3.0"
+version := "1.3.1"
 isSnapshot := true
 
 scalaVersion := "3.7.0"
